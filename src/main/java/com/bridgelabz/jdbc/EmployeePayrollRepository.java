@@ -12,7 +12,7 @@ import java.util.List;
 
 public class EmployeePayrollRepository {
 
-	private Connection getConnection() {
+	public Connection getConnection() {
 		Connection connection = null;
 		try {
 			String JDBCURL = "jdbc:mysql://localhost:3306/employee_payroll_service";
@@ -30,7 +30,7 @@ public class EmployeePayrollRepository {
 		try (Connection connection = getConnection()) {
 			// step 3
 			Statement statement = connection.createStatement();
-			String sqlQuery = "select * from employee";
+			String sqlQuery = "select * from employees";
 			ResultSet resultSet = statement.executeQuery(sqlQuery);
 			while (resultSet.next()) {
 				EmployeeInfo employeeInfo = new EmployeeInfo();
@@ -54,7 +54,7 @@ public class EmployeePayrollRepository {
 	public void updateSalary(String name, int basic_pay) {
 		try (Connection connection = getConnection()) {
 			Statement statement = connection.createStatement();
-			String sqlQuery = String.format("update employee set basic_pay = %d where name = '%s'", basic_pay,
+			String sqlQuery = String.format("update employees set basic_pay = %d where name = '%s'", basic_pay,
 					name);
 			int result = statement.executeUpdate(sqlQuery);
 			if (result >= 1) {
@@ -68,7 +68,7 @@ public class EmployeePayrollRepository {
 //update salary using prepared statement
 	public void updateSalaryUsingPreparedStatement(String name, double d) {
 		try (Connection connection = getConnection()) {
-			String query = "update employee set basic_pay = ? where name = ?";
+			String query = "update employees set basic_pay = ? where name = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setDouble(1, d);
 			preparedStatement.setString(2, name);
@@ -87,7 +87,7 @@ public class EmployeePayrollRepository {
 		try (Connection connection = getConnection()) {
 			// step 3
 			Statement statement = connection.createStatement();
-			String sqlQuery = "select * from employee \n" + "where startDate between '2021-01-11' and date(now());\n";
+			String sqlQuery = "select * from employees \n" + "where startDate between '2021-01-11' and date(now());\n";
 			ResultSet resultset = statement.executeQuery(sqlQuery);
 			while (resultset.next()) {
 				EmployeeInfo info = new EmployeeInfo();
