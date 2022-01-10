@@ -39,9 +39,9 @@ public class EmployeePayrollRepository {
 				employeeInfo.setGender(resultSet.getString("gender").charAt(0));
 				employeeInfo.setPhone(resultSet.getString("phone"));
 				employeeInfo.setAddress(resultSet.getString("address"));
-                employeeInfo.setStartDate(Date.valueOf(resultSet.getDate("startDate").toLocalDate()));
-                employeeInfo.setBasic_pay(resultSet.getDouble("basic_pay"));
-                employeeInfos.add(employeeInfo);
+				employeeInfo.setStartDate(Date.valueOf(resultSet.getDate("startDate").toLocalDate()));
+				employeeInfo.setBasic_pay(resultSet.getDouble("basic_pay"));
+				employeeInfos.add(employeeInfo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -54,8 +54,7 @@ public class EmployeePayrollRepository {
 	public void updateSalary(String name, int basic_pay) {
 		try (Connection connection = getConnection()) {
 			Statement statement = connection.createStatement();
-			String sqlQuery = String.format("update employees set basic_pay = %d where name = '%s'", basic_pay,
-					name);
+			String sqlQuery = String.format("update employees set basic_pay = %d where name = '%s'", basic_pay, name);
 			int result = statement.executeUpdate(sqlQuery);
 			if (result >= 1) {
 				System.out.println("salary updated");
@@ -105,5 +104,194 @@ public class EmployeePayrollRepository {
 			e.printStackTrace();
 		}
 		return employeeInfo;
+	}
+
+	public boolean findSumGroupByMale() {
+		try (Connection connection = getConnection()) {
+			Statement statement = connection.createStatement();
+			String sqlQuery = "select gender, sum(salary) from employee_payroll where gender ='M'group by gender";
+			ResultSet resultSet = statement.executeQuery(sqlQuery);
+			if (resultSet.next()) {
+				do {
+					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
+				} while (resultSet.next());
+			} else {
+				System.out.println("not getting sum");
+			}
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public boolean findSumGroupByFeMale() {
+		try (Connection connection = getConnection()) {
+			Statement statement = connection.createStatement();
+			String sqlQuery = "select gender, sum(salary) from employee_payroll where gender ='F'group by gender";
+			ResultSet resultSet = statement.executeQuery(sqlQuery);
+			if (resultSet.next()) {
+				do {
+					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
+				} while (resultSet.next());
+			} else {
+				System.out.println("not getting sum");
+			}
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+		public boolean findAvgGroupByMale() {
+		try (Connection connection = getConnection()) {
+			Statement statement = connection.createStatement();
+			String sqlQuery = "	select gender, avg(salary) from employee_payroll where gender ='M'group by gender";
+			ResultSet resultSet = statement.executeQuery(sqlQuery);
+			if (resultSet.next()) {
+				do {
+					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
+				} while (resultSet.next());
+			} else {
+				System.out.println("not getting sum");
+			}
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public boolean findAvgGroupByFeMale() {
+		try (Connection connection = getConnection()) {
+			Statement statement = connection.createStatement();
+			String sqlQuery = "	select gender, avg(salary) from employee_payroll where gender ='F'group by gender";
+			ResultSet resultSet = statement.executeQuery(sqlQuery);
+			if (resultSet.next()) {
+				do {
+					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
+				} while (resultSet.next());
+			} else {
+				System.out.println("not getting sum");
+			}
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}public boolean findMinGroupByMale() {
+		try (Connection connection = getConnection()) {
+			Statement statement = connection.createStatement();
+			String sqlQuery = "	select gender, min(salary) from employee_payroll where gender ='M'group by gender";
+			ResultSet resultSet = statement.executeQuery(sqlQuery);
+			if (resultSet.next()) {
+				do {
+					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
+				} while (resultSet.next());
+			} else {
+				System.out.println("not getting sum");
+			}
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public boolean findMinGroupByFeMale() {
+		try (Connection connection = getConnection()) {
+			Statement statement = connection.createStatement();
+			String sqlQuery = "select gender, min(salary) from employee_payroll where gender ='F'group by gender";
+			ResultSet resultSet = statement.executeQuery(sqlQuery);
+			if (resultSet.next()) {
+				do {
+					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
+				} while (resultSet.next());
+			} else {
+				System.out.println("not getting sum");
+			}
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}public boolean findMaxGroupByMale() {
+		try (Connection connection = getConnection()) {
+			Statement statement = connection.createStatement();
+			String sqlQuery = "select gender, max(salary) from employee_payroll where gender ='M'group by gender";
+			ResultSet resultSet = statement.executeQuery(sqlQuery);
+			if (resultSet.next()) {
+				do {
+					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
+				} while (resultSet.next());
+			} else {
+				System.out.println("not getting sum");
+			}
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public boolean findMaxGroupByFeMale() {
+		try (Connection connection = getConnection()) {
+			Statement statement = connection.createStatement();
+			String sqlQuery = "select gender, max(salary) from employee_payroll where gender ='F'group by gender";
+			ResultSet resultSet = statement.executeQuery(sqlQuery);
+			if (resultSet.next()) {
+				do {
+					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
+				} while (resultSet.next());
+			} else {
+				System.out.println("not getting sum");
+			}
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public boolean findCountGroupByMale() {
+		try (Connection connection = getConnection()) {
+			Statement statement = connection.createStatement();
+			String sqlQuery = "select gender, count(salary) from employee_payroll where gender ='M'group by gender";
+			ResultSet resultSet = statement.executeQuery(sqlQuery);
+			if (resultSet.next()) {
+				do {
+					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
+				} while (resultSet.next());
+			} else {
+				System.out.println("not getting sum");
+			}
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public boolean findCountGroupByFeMale() {
+		try (Connection connection = getConnection()) {
+			Statement statement = connection.createStatement();
+			String sqlQuery = "select gender, count(salary) from employee_payroll where gender ='F'group by gender";
+			ResultSet resultSet = statement.executeQuery(sqlQuery);
+			if (resultSet.next()) {
+				do {
+					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
+				} while (resultSet.next());
+			} else {
+				System.out.println("not getting sum");
+			}
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }
