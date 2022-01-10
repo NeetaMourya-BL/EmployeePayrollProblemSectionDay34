@@ -154,7 +154,7 @@ public class EmployeePayrollRepository {
 					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
 				} while (resultSet.next());
 			} else {
-				System.out.println("not getting sum");
+				System.out.println("not getting avg");
 			}
 			connection.close();
 
@@ -173,7 +173,7 @@ public class EmployeePayrollRepository {
 					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
 				} while (resultSet.next());
 			} else {
-				System.out.println("not getting sum");
+				System.out.println("not getting avg");
 			}
 			connection.close();
 
@@ -191,7 +191,7 @@ public class EmployeePayrollRepository {
 					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
 				} while (resultSet.next());
 			} else {
-				System.out.println("not getting sum");
+				System.out.println("not getting min");
 			}
 			connection.close();
 
@@ -210,7 +210,7 @@ public class EmployeePayrollRepository {
 					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
 				} while (resultSet.next());
 			} else {
-				System.out.println("not getting sum");
+				System.out.println("not getting min");
 			}
 			connection.close();
 
@@ -228,7 +228,7 @@ public class EmployeePayrollRepository {
 					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
 				} while (resultSet.next());
 			} else {
-				System.out.println("not getting sum");
+				System.out.println("not getting max");
 			}
 			connection.close();
 
@@ -247,7 +247,7 @@ public class EmployeePayrollRepository {
 					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
 				} while (resultSet.next());
 			} else {
-				System.out.println("not getting sum");
+				System.out.println("not getting max");
 			}
 			connection.close();
 
@@ -266,7 +266,7 @@ public class EmployeePayrollRepository {
 					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
 				} while (resultSet.next());
 			} else {
-				System.out.println("not getting sum");
+				System.out.println("not getting count");
 			}
 			connection.close();
 
@@ -285,7 +285,7 @@ public class EmployeePayrollRepository {
 					System.out.println(resultSet.getString(3) + "," + resultSet.getString(5));
 				} while (resultSet.next());
 			} else {
-				System.out.println("not getting sum");
+				System.out.println("not getting count");
 			}
 			connection.close();
 
