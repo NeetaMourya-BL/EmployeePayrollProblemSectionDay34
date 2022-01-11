@@ -5,23 +5,6 @@ import java.util.Locale;
 public class EmployeePayrollService {
 	EmployeePayrollRepository employeePayrollRepository = new EmployeePayrollRepository();
 
-	public static void main(String[] args) {
-		EmployeePayrollService employeePayrollService = new EmployeePayrollService();
-		employeePayrollService.retrieveData();
-		employeePayrollService.updateSalary("Terrisa", 3000000.00);
-		employeePayrollService.retrieveDataByDate();
-		employeePayrollService.findSumGroupByMale();
-		employeePayrollService.findSumGroupByFeMale();
-		employeePayrollService.findAvgGroupByMale();
-		employeePayrollService.findAvgGroupByFeMale();
-		employeePayrollService.findMinGroupByMale();
-		employeePayrollService.findMinGroupByFeMale();
-		employeePayrollService.findMaxGroupByMale();
-		employeePayrollService.findMaxGroupByFeMale();
-		employeePayrollService.findCountGroupByMale();
-		employeePayrollService.findCountGroupByFeMale();
-	}
-
 	public void retrieveData() {
 		System.out.println(employeePayrollRepository.retrieveData());
 	}
@@ -35,43 +18,36 @@ public class EmployeePayrollService {
 		System.out.println(employeePayrollRepository.retrieveDataByDateRange());
 	}
 
-	private void findSumGroupByMale() {
-		System.out.println(employeePayrollRepository.findSumGroupByMale());
+	public void getSumOfSalaryByGender(String sqlQuery) {
+		System.out.println(employeePayrollRepository.getSumOfSalaryByGender());
 	}
 
-	private void findSumGroupByFeMale() {
-		System.out.println(employeePayrollRepository.findSumGroupByFeMale());
+	public void getAverageSalaryByGender(String sqlQuery) {
+		System.out.println(employeePayrollRepository.getAverageSalaryByGender());
 	}
 
-	private void findAvgGroupByMale() {
-		System.out.println(employeePayrollRepository.findSumGroupByMale());
+	public void getMaxSalaryByGender(String sqlQuery) {
+		System.out.println(employeePayrollRepository.getMaxSalaryByGender());
 	}
 
-	private void findAvgGroupByFeMale() {
-		System.out.println(employeePayrollRepository.findSumGroupByFeMale());
+	public void getMinSalaryByGender(String sqlQuery) {
+		System.out.println(employeePayrollRepository.getMinSalaryByGender());
 	}
 
-	private void findMinGroupByMale() {
-		System.out.println(employeePayrollRepository.findSumGroupByMale());
+	public void getCountByGender(String sqlQuery) {
+		System.out.println(employeePayrollRepository.getCountByGender());
 	}
 
-	private void findMinGroupByFeMale() {
-		System.out.println(employeePayrollRepository.findSumGroupByFeMale());
+	public static void main(String[] args) {
+		EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+		employeePayrollService.retrieveData();
+		employeePayrollService.updateSalary("Terrisa", 3000000.00);
+		employeePayrollService.retrieveDataByDate();
+		employeePayrollService.getSumOfSalaryByGender(null);
+		employeePayrollService.getAverageSalaryByGender(null);
+		employeePayrollService.getMaxSalaryByGender(null);
+		employeePayrollService.getMinSalaryByGender(null);
+		employeePayrollService.getCountByGender(null);
 	}
 
-	private void findMaxGroupByMale() {
-		System.out.println(employeePayrollRepository.findSumGroupByMale());
-	}
-
-	private void findMaxGroupByFeMale() {
-		System.out.println(employeePayrollRepository.findSumGroupByFeMale());
-	}
-
-	private void findCountGroupByMale() {
-		System.out.println(employeePayrollRepository.findSumGroupByMale());
-	}
-
-	private void findCountGroupByFeMale() {
-		System.out.println(employeePayrollRepository.findSumGroupByFeMale());
-	}
 }

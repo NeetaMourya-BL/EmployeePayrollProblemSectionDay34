@@ -7,10 +7,9 @@ public class EmployeeInfo {
 	private String name;
 	private char gender;
 	private Date startDate;
-	private String phone;
+	private String phone_number;
 	private String address;
     private double basic_pay;
-    private String[]departmentName;
 
 	public int getId() {
 		return id;
@@ -45,11 +44,11 @@ public class EmployeeInfo {
 	}
 
 	public String getPhone() {
-		return phone;
+		return phone_number;
 	}
 
 	public void setPhone(String phone) {
-		this.phone = phone;
+		this.phone_number = phone;
 	}
 
 	public String getAddress() {
@@ -72,6 +71,6 @@ public class EmployeeInfo {
 	@Override
 	public String toString() {
 		return "EmployeeInfo [id=" + id + ", name=" + name + ", gender=" + gender + ", startDate=" + startDate
-				+ ", phone=" + phone + ", address=" + address + ", basic_pay=" + basic_pay + "]";
+				+ ", phone=" + phone_number + ", address=" + address + ", basic_pay=" + basic_pay + "]";
 	}
 }

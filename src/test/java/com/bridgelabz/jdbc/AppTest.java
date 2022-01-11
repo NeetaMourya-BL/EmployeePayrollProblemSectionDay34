@@ -1,4 +1,4 @@
-package JDBC.jdbc;
+package com.bridgelabz.jdbc;
 
 import static org.junit.Assert.assertTrue;
 
