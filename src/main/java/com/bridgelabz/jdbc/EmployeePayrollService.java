@@ -9,12 +9,16 @@ public class EmployeePayrollService {
 		System.out.println(employeePayrollRepository.retrieveData());
 	}
 
-	private void updateSalary(String name, double d) {
+	public void updateSalary(String name, double d) {
 		employeePayrollRepository.updateSalaryUsingPreparedStatement(name.toLowerCase(Locale.ROOT), d);
 
 	}
 
-	private void retrieveDataByDate() {
+	public void updateSalaryUsingPreparedStatement(String name, int basic_pay) {
+		employeePayrollRepository.updateSalaryUsingPreparedStatement(name.toLowerCase(Locale.ROOT), basic_pay);
+	}
+
+	public void retrieveDataByDateRange(String sqlQuery) {
 		System.out.println(employeePayrollRepository.retrieveDataByDateRange());
 	}
 
@@ -42,7 +46,7 @@ public class EmployeePayrollService {
 		EmployeePayrollService employeePayrollService = new EmployeePayrollService();
 		employeePayrollService.retrieveData();
 		employeePayrollService.updateSalary("Terrisa", 3000000.00);
-		employeePayrollService.retrieveDataByDate();
+		employeePayrollService.retrieveDataByDateRange(null);
 		employeePayrollService.getSumOfSalaryByGender(null);
 		employeePayrollService.getAverageSalaryByGender(null);
 		employeePayrollService.getMaxSalaryByGender(null);
